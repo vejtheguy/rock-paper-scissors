@@ -8,7 +8,7 @@ This project is a browser-based Rock Paper Scissors game that runs in the consol
 
 ## How to Play
 
-1. Open the [rock/paper/scissors](https://vejtheguy.github.io/rock-paper-scissors/) game.
+1. Open the [rock/paper/scissors](https://vejtheguy.github.io/rock-paper-scissors/) page and click the `play` button.
 2. When prompted, type `yes` to start the game.
 3. Enter `rock`, `paper`, or `scissors` when asked.
 4. Check the browser console to see round results and scores.
@@ -27,6 +27,7 @@ This project is a browser-based Rock Paper Scissors game that runs in the consol
 ## What I Learned
 
 - Writing and calling functions
-- Using loops (`for`, `do...while`)
-- Handling user input with `prompt()`
+- Using `for` loops for game rounds
+- Handling user input through button clicks
+- Adding event listeners and working with the DOM
 - Basic game logic and control flow
