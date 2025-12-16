@@ -73,11 +73,12 @@ const playGame = () => {
   }
 };
 
-let ready = "";
-
 document.getElementById("play").addEventListener("click", () => {
-  ready = prompt("Ready to play? Yes or no?").toLowerCase();
-  if (ready === "yes") {
+  const question = prompt("Ready to play? Yes or no?");
+  if (question === null) return;
+  question.toLowerCase();
+
+  if (question === "yes") {
     humanScore = 0;
     computerScore = 0;
     playGame();
