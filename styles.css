@@ -5,9 +5,21 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Chewy", system-ui;
   background-color: #0b909f;
   color: #f7f7f7;
-  line-height: 1.6;
-  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+p {
+  font-size: 2rem;
+  margin-top: 1rem;
 }
