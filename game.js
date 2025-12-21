@@ -1,5 +1,16 @@
 let humanScore = 0;
 let computerScore = 0;
+let round = 0;
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorsBtn = document.getElementById("scissors");
+const statusText = document.getElementById("status");
+const playBtn = document.getElementById("play");
+const nextBtn = document.getElementById("next");
+const roundStatus = document.getElementById("round");
+const rpsBtns = document.querySelectorAll(".choice");
+const humanScoreText = document.getElementById("human-score");
+const computerScoreText = document.getElementById("computer-score");
 
 const getComputerChoice = () => {
   const randomNumber = Math.floor(Math.random() * 3);
@@ -13,15 +24,10 @@ const getComputerChoice = () => {
   }
 };
 
-const getHumanChoice = () => {
-  let choice = prompt("Enter rock, paper, or scissors: ").toLowerCase();
-  return choice;
-};
-
 const playRound = (humanChoice, computerChoice) => {
+  endRound();
+
   if (humanChoice === computerChoice) {
-    humanScore++;
-    computerScore++;
     return "It's a tie!";
   } else if (humanChoice === "rock") {
     if (computerChoice === "scissors") {
@@ -52,37 +58,79 @@ const playRound = (humanChoice, computerChoice) => {
   }
 };
 
-const playGame = () => {
-  for (let round = 1; round <= 5; round++) {
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    console.log(`Round ${round}:`);
-    console.log(`You chose: ${humanChoice}`);
-    console.log(`Computer chose: ${computerChoice}`);
-    console.log(playRound(humanChoice, computerChoice));
-    console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
-    console.log("-------------------------");
-  }
+const handleClick = (b) => {
+  const computerChoice = getComputerChoice();
+  statusText.textContent = playRound(b.id, computerChoice);
+  humanScoreText.textContent = `Human: ${humanScore}`;
+  computerScoreText.textContent = `Computer: ${computerScore}`;
+  checkScore();
+};
 
-  if (humanScore > computerScore) {
-    console.log("Congratulations! You won the game!");
-  } else if (computerScore > humanScore) {
-    console.log("Sorry! The computer won the game.");
-  } else {
-    console.log("The game is a tie!");
+const checkScore = () => {
+  if (humanScore === 5 || computerScore === 5) {
+    if (humanScore > computerScore) {
+      statusText.textContent = "Congratulations! You won the game!";
+      endGame();
+    } else {
+      statusText.textContent = "Sorry! The computer won the game.";
+      endGame();
+    }
   }
 };
 
-document.getElementById("play").addEventListener("click", () => {
-  const question = prompt("Ready to play? Yes or no?");
-  if (question === null) return;
-  question.toLowerCase();
+const startGame = () => {
+  humanScore = 0;
+  computerScore = 0;
+  round = 0;
 
-  if (question === "yes") {
-    humanScore = 0;
-    computerScore = 0;
-    playGame();
-  } else {
-    console.log("Okay, maybe next time :)");
-  }
+  playBtn.classList.add("hidden");
+  roundStatus.classList.remove("hidden");
+  statusText.classList.remove("hidden");
+  humanScoreText.classList.remove("hidden");
+  computerScoreText.classList.remove("hidden");
+  roundStatus.textContent = `Round ${round}`;
+  humanScoreText.textContent = `Human: ${humanScore}`;
+  computerScoreText.textContent = `Computer: ${computerScore}`;
+
+  nextRound();
+};
+
+const nextRound = () => {
+  rockBtn.classList.remove("hidden");
+  paperBtn.classList.remove("hidden");
+  scissorsBtn.classList.remove("hidden");
+  nextBtn.classList.add("hidden");
+  round++;
+  roundStatus.textContent = `Round: ${round}`;
+  statusText.textContent = "make your choice";
+};
+
+const endRound = () => {
+  rockBtn.classList.add("hidden");
+  paperBtn.classList.add("hidden");
+  scissorsBtn.classList.add("hidden");
+  nextBtn.classList.remove("hidden");
+};
+
+const endGame = () => {
+  rockBtn.classList.add("hidden");
+  paperBtn.classList.add("hidden");
+  scissorsBtn.classList.add("hidden");
+  nextBtn.classList.add("hidden");
+  humanScoreText.classList.remove("hidden");
+  computerScoreText.classList.remove("hidden");
+  roundStatus.classList.add("hidden");
+  playBtn.textContent = "play again";
+  playBtn.classList.remove("hidden");
+};
+rpsBtns.forEach((btn) => {
+  btn.addEventListener("click", () => handleClick(btn));
+});
+
+playBtn.addEventListener("click", () => {
+  startGame();
+});
+
+nextBtn.addEventListener("click", () => {
+  nextRound();
 });
