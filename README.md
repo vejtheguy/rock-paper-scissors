@@ -2,32 +2,38 @@
 
 A simple Rock Paper Scissors game built with JavaScript as practice for The Odin Project.
 
+[![RPS Screenshot](./imgs/RPS%20Screenshot.png)](https://vejtheguy.github.io/rock-paper-scissors/)
+
 ## Description
 
-This project is a browser-based Rock Paper Scissors game that runs in the console using `prompt()` for user input. The player competes against the computer over 5 rounds, and the final winner is displayed at the end of the game.
+This project is a browser-based Rock Paper Scissors game that runs directly in the DOM. Players make their choice using on-screen buttons, which update dynamically as the game progresses. The player competes against the computer in a best-of-five match, with round results and scores displayed on the page. Once a winner is decided, the game offers the option to replay.
 
 ## How to Play
 
-1. Open the [rock/paper/scissors](https://vejtheguy.github.io/rock-paper-scissors/) page and click the `play` button.
-2. When prompted, type `yes` to start the game.
-3. Enter `rock`, `paper`, or `scissors` when asked.
-4. Check the browser console to see round results and scores.
+1. Open the [rock/paper/scissors](https://vejtheguy.github.io/rock-paper-scissors/) page and click the `play game` button.
+2. When prompted, choose `rock`, `paper`, or `scissors`.
+3. Click `next round` and continue playing until you are the computer wins the best-of-five.
+4. Click `play again` to play a new game against the computer.
 
 ## Features
 
+- Interactive button-based gameplay
 - Random computer choices
-- Score tracking across 5 rounds
-- Console-based output
+- Score tracking in a best-of-five match
+- Dynamic DOM updates for round results and scores
+- Replay option after a winner is decided
+- UI elements shown/hidden using `classList`
 
 ## Built With
 
 - HTML
+- CSS
 - JavaScript
 
 ## What I Learned
 
-- Writing and calling functions
-- Using `for` loops for game rounds
-- Handling user input through button clicks
-- Adding event listeners and working with the DOM
-- Basic game logic and control flow
+- Using event listeners instead for interaction
+- Manipulating the DOM to update text and game state
+- Showing and hiding elements with `classList`
+- Managing game state across multiple rounds
+- Implementing basic game logic and control flow
