@@ -14,20 +14,38 @@ body {
   align-items: center;
   justify-content: center;
   text-shadow: 2px 2px 4px #0000007a;
+  gap: 2rem;
 }
 
 h1 {
   font-size: 4rem;
 }
 
-p {
+.hidden {
+  display: none;
+}
+
+.active {
+  background-color: aquamarine;
+}
+
+#status {
   font-size: 2rem;
-  margin-top: 1rem;
+}
+
+#scoreBoard {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  font-size: 2rem;
+}
+
+#round {
+  font-size: 2.5rem;
 }
 
 button {
   font-family: "Chewy", system-ui;
-  margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 1.6rem;
   background-color: #f7f7f7;
@@ -41,4 +59,10 @@ button {
 
 button:hover {
   background-color: #dce5e6;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }

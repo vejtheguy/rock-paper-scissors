@@ -15,8 +15,19 @@
 
 <body>
     <h1>Odin's Rock, Paper, Scissors Game</h1>
-    <p>open the browser console to view stats</p>
-    <button id="play">play game</button>
+    <span id="round" class="hidden">round</span>
+    <span id="status" class="hidden">make your choice</span>
+    <div class="container">
+        <button id="play">play game</button>
+        <button id="rock" class="hidden choice">rock</button>
+        <button id="paper" class="hidden choice">paper</button>
+        <button id="scissors" class="hidden choice">scissors</button>
+        <button id="next" class="hidden">play next round</button>
+    </div>
+    <div id="scoreBoard">
+        <span id="human-score" class="score hidden">Human: 0</span>
+        <span id="computer-score" class="score hidden">Computer: 0</span>
+    </div>
 </body>
 
 </html>
